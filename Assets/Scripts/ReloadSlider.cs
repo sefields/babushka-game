@@ -60,6 +60,7 @@ public class ReloadSlider : MonoBehaviour {
     {
         sliderSpeed = sliderSpeedNormal;
         float timer = 0f;
+        swagZone.SetActive(true);
 
         while (mySlider.value < 1)
         {
@@ -82,6 +83,7 @@ public class ReloadSlider : MonoBehaviour {
         }
         else {
             sliderSpeed = sliderSpeedFail;
+            swagZone.SetActive(false);
             return;
         }
     }
