@@ -2,6 +2,8 @@
 using System.Collections;
 using VRStandardAssets.ShootingGallery;
 
+// by Sam Fields
+
 public class Spawner : MonoBehaviour {
 
     //  This is the spawner. It may spawn either a Doll or an object on which Doll(s) ride. 

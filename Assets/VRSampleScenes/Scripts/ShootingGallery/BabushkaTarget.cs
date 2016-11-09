@@ -4,6 +4,8 @@ using UnityEngine;
 using VRStandardAssets.Common;
 using VRStandardAssets.Utils;
 
+// by Sam Fields
+
 namespace VRStandardAssets.ShootingGallery
 {
     // This script handles a target in the shooter scenes.

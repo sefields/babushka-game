@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// by Sam Fields
+
 public class DestroyParticleSystem : MonoBehaviour {
 
     private ParticleSystem ps;

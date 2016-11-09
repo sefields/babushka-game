@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// by Sam Fields
+
 public class ReloadHandle : MonoBehaviour {
 
     private bool success;

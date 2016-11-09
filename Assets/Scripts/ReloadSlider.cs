@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using VRStandardAssets.Utils;
 using VRStandardAssets.ShootingGallery;
 
+// by Sam Fields
+
 public class ReloadSlider : MonoBehaviour {
 
     private float sliderSpeed;
