@@ -144,7 +144,7 @@ namespace VRStandardAssets.ShootingGallery
                 OnRemove(this);
         }
 
-
+        //  This is called by ShootingGalleryGun.cs
         public void ReceiveHit()
         {
             if (health > 1)
