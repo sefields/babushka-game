@@ -59,19 +59,6 @@ namespace VRStandardAssets.ShootingGallery
             sizeDecrement = transform.localScale.x / health;
         }
 
-
-        private void OnEnable()
-        {
-            m_InteractiveItem.OnDown += HandleDown;
-        }
-
-
-        private void OnDisable()
-        {
-            m_InteractiveItem.OnDown -= HandleDown;
-        }
-
-
         private void OnDestroy()
         {
             // Ensure the event is completely unsubscribed when the target is destroyed.
@@ -158,7 +145,7 @@ namespace VRStandardAssets.ShootingGallery
         }
 
 
-        private void HandleDown()
+        public void ReceiveHit()
         {
             if (health > 1)
             {
