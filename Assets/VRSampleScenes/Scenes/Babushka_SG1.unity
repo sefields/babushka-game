@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dollPrefab: {fileID: 1000013956325864, guid: e3e76fd3d82cfe64b809da56c06b3679, type: 2}
+  duration: 10
 --- !u!1001 &26198432
 Prefab:
   m_ObjectHideFlags: 0
@@ -2435,6 +2436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dollPrefab: {fileID: 1000013956325864, guid: e3e76fd3d82cfe64b809da56c06b3679, type: 2}
+  duration: 10
 --- !u!1 &1131323143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,6 +3877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dollPrefab: {fileID: 1000012715710394, guid: 9da40d1d091713d46868d3a09c3cc1c5, type: 2}
+  duration: 30
 --- !u!1001 &1647315344
 Prefab:
   m_ObjectHideFlags: 0
@@ -4840,6 +4843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dollPrefab: {fileID: 1000013768534634, guid: 37921f5c72adbb04f989427e14e9281d, type: 2}
+  duration: 60
 --- !u!1001 &1916725061
 Prefab:
   m_ObjectHideFlags: 0
@@ -5194,6 +5198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dollPrefab: {fileID: 1000013956325864, guid: e3e76fd3d82cfe64b809da56c06b3679, type: 2}
+  duration: 20
 --- !u!114 &2108918010 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11415056, guid: 565fa42cafc247f4f87fd720db4871ad,

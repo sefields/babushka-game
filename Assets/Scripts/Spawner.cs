@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour {
 
     [SerializeField]
     GameObject dollPrefab;
+    [SerializeField]
+    float duration;
     GameObject myAgent;
     private GameObject myPath;
 
@@ -33,6 +35,7 @@ public class Spawner : MonoBehaviour {
             respawn.mySpawner = this.gameObject;
         }
         myAgent.GetComponent<SplineController>().SplineRoot = myPath;
+        myAgent.GetComponent<SplineController>().Duration = duration;
     }
 
     public IEnumerator WaitAndRespawn(float time)
