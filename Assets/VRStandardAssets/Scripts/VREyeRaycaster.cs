@@ -22,7 +22,7 @@ namespace VRStandardAssets.Utils
         [SerializeField] private float m_RayLength = 500f;              // How far into the scene the ray is cast.
 
         
-        private VRInteractiveItem m_CurrentInteractible;                //The current interactive item
+        public VRInteractiveItem m_CurrentInteractible;                //The current interactive item
         private VRInteractiveItem m_LastInteractible;                   //The last interactive item
 
 

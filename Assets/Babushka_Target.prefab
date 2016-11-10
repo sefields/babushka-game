@@ -20,13 +20,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010343951666}
   - 114: {fileID: 114000012479375946}
-  - 136: {fileID: 136000010477921356}
   - 114: {fileID: 114000011925371354}
   - 82: {fileID: 82000010470118680}
   - 82: {fileID: 82000013864078512}
   - 82: {fileID: 82000012103310784}
   - 114: {fileID: 114000010828116116}
   - 114: {fileID: 114000011041763572}
+  - 136: {fileID: 136000011664340230}
   m_Layer: 0
   m_Name: Babushka_Target
   m_TagString: Untagged
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013956325864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1, y: -1.3281021, z: -5.64}
+  m_LocalPosition: {x: -4.4767475, y: -0.23515481, z: 0.53143406}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &136000010477921356
+--- !u!136 &136000011664340230
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -413,4 +413,4 @@ CapsuleCollider:
   m_Radius: 0.3
   m_Height: 0
   m_Direction: 1
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Center: {x: 0, y: 0.33, z: 0}

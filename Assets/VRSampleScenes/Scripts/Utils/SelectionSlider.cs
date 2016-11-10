@@ -138,7 +138,10 @@ namespace VRStandardAssets.Utils
 
             // If the bar should be disabled once it is filled, do so now.
             if (m_DisableOnBarFill)
+            {
                 enabled = false;
+                GetComponent<Collider>().enabled = false;
+            }
         }
 
 

@@ -198,8 +198,8 @@ namespace VRStandardAssets.ShootingGallery
         private void TriggerRespawn()
         {
             float time = UnityEngine.Random.Range(respawnTimeMin, respawnTimeMax);
-            Debug.Log("Random Time: " + time);
-            StartCoroutine(mySpawner.GetComponent<Spawner>().WaitAndRespawn(time));
+            if (mySpawner)
+                StartCoroutine(mySpawner.GetComponent<Spawner>().WaitAndRespawn(time));
         }
     }
 }

@@ -101,7 +101,8 @@ namespace VRStandardAssets.ShootingGallery
             BabushkaTarget shootingTarget = m_EyeRaycaster.CurrentInteractible ? m_EyeRaycaster.CurrentInteractible.GetComponent<BabushkaTarget>() : null;
 
             // If there is a BabushkaTarget component tell it to receive a hit
-            if (shootingTarget) shootingTarget.ReceiveHit();
+            if (shootingTarget)
+                shootingTarget.ReceiveHit();
 
             // If there is a ShootingTarget component get it's transform as the target for shooting at.
             Transform target = shootingTarget ? shootingTarget.transform : null;

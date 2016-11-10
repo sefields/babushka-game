@@ -13,7 +13,7 @@ EditorBuildSettings:
     path: Assets/VRSampleScenes/Scenes/Maze.unity
   - enabled: 0
     path: Assets/VRSampleScenes/Scenes/Flyer.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/VRSampleScenes/Scenes/Shooter360.unity
   - enabled: 0
     path: Assets/VRSampleScenes/Scenes/Shooter180.unity
@@ -27,3 +27,5 @@ EditorBuildSettings:
     path: Assets/VRSampleScenes/Scenes/Examples/RenderScale.unity
   - enabled: 0
     path: Assets/VRSampleScenes/Scenes/Examples/InteractiveItem.unity
+  - enabled: 1
+    path: Assets/VRSampleScenes/Scenes/Babushka_SG1.unity
