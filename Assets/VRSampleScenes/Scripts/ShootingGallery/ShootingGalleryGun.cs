@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.VR;
+using UnityEngine.UI;
 using VRStandardAssets.Utils;
 
 namespace VRStandardAssets.ShootingGallery
@@ -35,6 +36,8 @@ namespace VRStandardAssets.ShootingGallery
         private GameObject reloadSlider;
         [SerializeField]
         private BulletUpdate bulletUpdate;
+        private int scoreMultiplier = 1;
+        [SerializeField] private Text scoreMultiplierDisplay;
 
 
         private const float k_DampingCoef = -20f;                                       // This is the coefficient used to ensure smooth damping of this gameobject.
@@ -102,7 +105,13 @@ namespace VRStandardAssets.ShootingGallery
 
             // If there is a BabushkaTarget component tell it to receive a hit
             if (shootingTarget)
-                shootingTarget.ReceiveHit();
+            {
+                shootingTarget.ReceiveHit(scoreMultiplier);
+                scoreMultiplier += 1;
+            }
+            //  Otherwise the player has missed. Reset their multiplier.
+            else scoreMultiplier = 1;
+            UpdateScoreMultiplierDisplay();
 
             // If there is a ShootingTarget component get it's transform as the target for shooting at.
             Transform target = shootingTarget ? shootingTarget.transform : null;
@@ -187,6 +196,11 @@ namespace VRStandardAssets.ShootingGallery
             yield return new WaitForSeconds(.1f);
             canShoot = true;
 
+        }
+
+        private void UpdateScoreMultiplierDisplay()
+        {
+            scoreMultiplierDisplay.text = "x" + scoreMultiplier.ToString();
         }
     }
 }

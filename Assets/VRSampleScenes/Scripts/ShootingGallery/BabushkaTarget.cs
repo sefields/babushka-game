@@ -145,10 +145,10 @@ namespace VRStandardAssets.ShootingGallery
         }
 
         //  This is called by ShootingGalleryGun.cs
-        public void ReceiveHit()
+        public void ReceiveHit(int scoreMultiplier)
         {
             // Add to the player's score.
-            SessionData.AddScore(m_Score);
+            SessionData.AddScore(m_Score * scoreMultiplier);
 
             if (health > 1)
             {
