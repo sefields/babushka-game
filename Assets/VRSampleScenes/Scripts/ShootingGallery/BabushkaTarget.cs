@@ -147,9 +147,13 @@ namespace VRStandardAssets.ShootingGallery
         //  This is called by ShootingGalleryGun.cs
         public void ReceiveHit()
         {
+            // Add to the player's score.
+            SessionData.AddScore(m_Score);
+
             if (health > 1)
             {
                 ShrinkAndDecrementHealth();
+                m_Score += 1;
                 return;
             }
 
@@ -170,9 +174,6 @@ namespace VRStandardAssets.ShootingGallery
             // Play the clip of the target being hit.
             m_Audio.clip = m_DestroyClip;
             m_Audio.Play();
-
-            // Add to the player's score.
-            SessionData.AddScore(m_Score);
 
             // Instantiate the shattered target prefab in place of this target.
             GameObject destroyedTarget = Instantiate(m_DestroyPrefab, transform.position, transform.rotation) as GameObject;
