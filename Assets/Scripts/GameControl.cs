@@ -18,11 +18,10 @@ public class GameControl : MonoBehaviour {
             // Load the master doll list and use it to populate dollsCollected
             dollList = (TextAsset)Resources.Load("dollList");
             string dollListStr = dollList.text;
-            string[] dollListArr = dollListStr.Split('\n');
+            string[] dollListArr = dollListStr.Split(' ');
             foreach (string s in dollListArr)
             {
                 dollsCollected.Add(s, false);
-                Debug.Log(s);
             }
 
 
@@ -37,8 +36,14 @@ public class GameControl : MonoBehaviour {
 
     public void CollectDoll(string dollID)
     {
+        if (!dollsCollected.ContainsKey(dollID))
+        {
+            Debug.Log("Doll not in master list.");
+            return;
+        }
         dollsCollected[dollID] = true;
         Save();
+        PrintCollected();
     }
 
     public void Save()
@@ -66,6 +71,14 @@ public class GameControl : MonoBehaviour {
             file.Close();
 
             dollsCollected = data.dollsCollected;
+        }
+    }
+
+    public void PrintCollected()
+    {
+        foreach (KeyValuePair<string, bool> d in dollsCollected)
+        {
+            Debug.Log(d.Key + " " + d.Value);
         }
     }
 }

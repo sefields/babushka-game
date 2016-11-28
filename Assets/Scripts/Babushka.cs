@@ -20,6 +20,8 @@ public class Babushka : MonoBehaviour {
     private Material m_DoubleClickedMaterial;
     [SerializeField]
     private Renderer[] m_Renderers;
+    [SerializeField]
+    private string dollTag;
 
     public GameObject happySparks;
 
@@ -77,12 +79,12 @@ public class Babushka : MonoBehaviour {
     {
         if (m_GazeOver) { 
             CollectMe();
-            Debug.Log("Gaze is on me!");
         }
     }
 
     private void CollectMe()
     {
+        GameControl.control.CollectDoll(dollTag);
         m_SelectionRadialBabushka.Hide();
         Instantiate(happySparks, transform.position, Quaternion.identity);
         int currScore = int.Parse(GameObject.Find("DebugT").GetComponent<Text>().text);

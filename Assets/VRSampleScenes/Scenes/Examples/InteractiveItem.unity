@@ -507,7 +507,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1331fff4b797e934f9dda03e8801d6e0, type: 2}
+  - {fileID: 2100000, guid: 15e7d168ee310f64c8ba9457c7cfd311, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -734,6 +734,11 @@ Prefab:
       propertyPath: m_SelectionRadialBabushka
       value: 
       objectReference: {fileID: 53255941}
+    - target: {fileID: 114000013316772926, guid: 3f9cbff0a6a96b64489f3ca801fa5080,
+        type: 2}
+      propertyPath: dollTag
+      value: sunbather2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f9cbff0a6a96b64489f3ca801fa5080, type: 2}
   m_IsPrefabParent: 0
@@ -812,6 +817,11 @@ Prefab:
     - target: {fileID: 1000012624336572, guid: 3f9cbff0a6a96b64489f3ca801fa5080, type: 2}
       propertyPath: m_Name
       value: Babushka (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013316772926, guid: 3f9cbff0a6a96b64489f3ca801fa5080,
+        type: 2}
+      propertyPath: dollTag
+      value: sunbather3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f9cbff0a6a96b64489f3ca801fa5080, type: 2}
@@ -935,6 +945,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1567414214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1567414216}
+  - 114: {fileID: 1567414215}
+  m_Layer: 0
+  m_Name: GameControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1567414215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567414214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa6cede4e1e6db4381e827fcd588973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1567414216
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1567414214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0761684, y: 2.5038466, z: 4.107229}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!1001 &1599866431
 Prefab:
   m_ObjectHideFlags: 0
@@ -988,6 +1038,11 @@ Prefab:
       propertyPath: m_SelectionRadialBabushka
       value: 
       objectReference: {fileID: 53255941}
+    - target: {fileID: 114000013316772926, guid: 3f9cbff0a6a96b64489f3ca801fa5080,
+        type: 2}
+      propertyPath: dollTag
+      value: sunbather1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f9cbff0a6a96b64489f3ca801fa5080, type: 2}
   m_IsPrefabParent: 0

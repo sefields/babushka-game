@@ -1,8 +1,1 @@
-sunbather1
-sunbather2
-sunbather3
-surfer
-boat
-hangGlider
-lifeguard
-snackShack
+sunbather1 sunbather2 sunbather3 surfer boat hangGlider lifeguard snackShack
