@@ -22,6 +22,7 @@ public class SplineController : MonoBehaviour
 
 	void OnDrawGizmos()
 	{
+        //  These are the points in our path
 		Transform[] trans = GetTransforms();
 		if (trans.Length < 2)
 			return;
@@ -64,7 +65,7 @@ public class SplineController : MonoBehaviour
 		float step = (AutoClose) ? Duration / trans.Length :
 			Duration / (trans.Length - 1);
 
-		int c;
+		int c; // current?
 		for (c = 0; c < trans.Length; c++)
 		{
 			if (OrientationMode == eOrientationMode.NODE)
@@ -73,6 +74,7 @@ public class SplineController : MonoBehaviour
 			}
 			else if (OrientationMode == eOrientationMode.TANGENT)
 			{
+                //  Deal with the tangent rotation
 				Quaternion rot;
 				if (c != trans.Length - 1)
 					rot = Quaternion.LookRotation(trans[c + 1].position - trans[c].position, trans[c].up);

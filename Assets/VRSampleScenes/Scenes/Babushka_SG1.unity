@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc333feefea5ee418248e55560fb392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollPrefab: {fileID: 1000013956325864, guid: e3e76fd3d82cfe64b809da56c06b3679, type: 2}
+  dollPrefab: {fileID: 0}
   duration: 10
 --- !u!1001 &26198432
 Prefab:
@@ -445,7 +445,7 @@ Transform:
   m_Children:
   - {fileID: 1685882608}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1 &252796911
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493278, guid: ccf8c8cc05aad7b40a8deb4f73296da4, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 104168, guid: ccf8c8cc05aad7b40a8deb4f73296da4, type: 2}
       propertyPath: m_Name
@@ -2028,6 +2028,52 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 22520670, guid: 863a0315eb7aa5349ba3dd88bfdbc120,
     type: 2}
   m_PrefabInternal: {fileID: 1148047541}
+--- !u!1001 &838735415
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 9.119666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.45696318
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.924272
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011740804698, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011078097796, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+      propertyPath: m_Name
+      value: Babushka_Target
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d682805299e4e234e845037cb3d2e714, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &876977570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,7 +2467,7 @@ Transform:
   m_Children:
   - {fileID: 1197573164}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &964035312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc333feefea5ee418248e55560fb392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollPrefab: {fileID: 1000013956325864, guid: e3e76fd3d82cfe64b809da56c06b3679, type: 2}
+  dollPrefab: {fileID: 0}
   duration: 10
 --- !u!1 &1131323143
 GameObject:
@@ -3080,7 +3126,7 @@ Transform:
   - {fileID: 1914294825}
   - {fileID: 2104605907}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1287930294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,7 +3464,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &1365868436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,7 +3814,7 @@ Transform:
   - {fileID: 1153307604}
   - {fileID: 1864814639}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
 --- !u!114 &1494584180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3886,7 +3932,7 @@ Transform:
   - {fileID: 1855431175}
   - {fileID: 1311168490}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!1 &1554008086
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,7 +4184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc333feefea5ee418248e55560fb392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollPrefab: {fileID: 1000012715710394, guid: 9da40d1d091713d46868d3a09c3cc1c5, type: 2}
+  dollPrefab: {fileID: 0}
   duration: 30
 --- !u!1001 &1659580388
 Prefab:
@@ -4502,7 +4548,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 471240, guid: ab81a05a3c3285b47be13f5c0878ddec, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 155142, guid: ab81a05a3c3285b47be13f5c0878ddec, type: 2}
       propertyPath: m_IsActive
@@ -4700,7 +4746,7 @@ Transform:
   m_Children:
   - {fileID: 1930404592}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!95 &1805302005
 Animator:
   serializedVersion: 3
@@ -4833,7 +4879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433588, guid: 565fa42cafc247f4f87fd720db4871ad, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11415056, guid: 565fa42cafc247f4f87fd720db4871ad, type: 2}
       propertyPath: m_ShootingGalleryController
@@ -4989,7 +5035,7 @@ Transform:
   m_Children:
   - {fileID: 1154510786}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &1831783692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5383,7 +5429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc333feefea5ee418248e55560fb392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollPrefab: {fileID: 1000013768534634, guid: 37921f5c72adbb04f989427e14e9281d, type: 2}
+  dollPrefab: {fileID: 981033316, guid: 37921f5c72adbb04f989427e14e9281d, type: 2}
   duration: 60
 --- !u!1001 &1916725061
 Prefab:
@@ -5742,7 +5788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc333feefea5ee418248e55560fb392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollPrefab: {fileID: 1000013956325864, guid: e3e76fd3d82cfe64b809da56c06b3679, type: 2}
+  dollPrefab: {fileID: 0}
   duration: 20
 --- !u!114 &2108918010 stripped
 MonoBehaviour:
