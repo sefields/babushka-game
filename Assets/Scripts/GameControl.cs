@@ -7,6 +7,7 @@ using System.IO;
 
 public class GameControl : MonoBehaviour {
 
+    //  Singleton-ish pattern. Refer to this object from any script with "GameControl.control"
     public static GameControl control;
     TextAsset dollList;
     Dictionary<string, bool> dollsCollected = new Dictionary<string, bool>();
@@ -44,6 +45,11 @@ public class GameControl : MonoBehaviour {
         dollsCollected[dollID] = true;
         Save();
         PrintCollected();
+    }
+
+    public Dictionary<string, bool> GetDollsCollected()
+    {
+        return dollsCollected;
     }
 
     public void Save()
