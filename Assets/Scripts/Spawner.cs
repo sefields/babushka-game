@@ -16,28 +16,39 @@ public class Spawner : MonoBehaviour {
     float duration;
     GameObject myAgent;
     private GameObject myPath;
+    int spawnPointCount;
 
 	// Use this for initialization
 	void Start () {
-        myPath = transform.Find("Path").gameObject;
         Spawn();
 	}
 
     void Spawn()
     {
-        Instantiate(spawnySparks, transform.position, Quaternion.identity);
-        myAgent = Instantiate(dollPrefab, transform.position, Quaternion.identity) as GameObject;
+        // Pick a random spawn point from my children
+        spawnPointCount = transform.childCount;
+        int randomSpawnPointIndex = Random.Range(0, spawnPointCount);
+        Transform spawnPoint = transform.GetChild(randomSpawnPointIndex);
+        // Debug.Log("Spawner count is" + spawnPointCount + ". I have selected spawner #" + randomSpawnPointIndex);
+
+        // Do the actual instantiations
+        Instantiate(spawnySparks, spawnPoint.position, Quaternion.identity);
+        myAgent = Instantiate(dollPrefab, spawnPoint.position, Quaternion.identity) as GameObject;
+
+        // Reach into the doll I just spawned and hand it a reference to me
         BabushkaTarget respawn = myAgent.GetComponent<BabushkaTarget>();
-        if (respawn != null) // This is the case where the thing that we spawned is a doll.
+        if (respawn != null) // Case 1: myAgent is a doll.
         {
             respawn.mySpawner = this.gameObject;
         }
-        else //  This is the case where the thing that we spawned is a vehicle, etc, and we need to dig a bit to find the doll.
+        else //  Case 2: myAgent is a vehicle or something, so we dig and find the doll within.
         {
             respawn = myAgent.GetComponentInChildren<BabushkaTarget>();
             respawn.mySpawner = this.gameObject;
         }
-        myAgent.GetComponent<SplineController>().SplineRoot = myPath;
+
+        // Set the agent on its path
+        myAgent.GetComponent<SplineController>().SplineRoot = spawnPoint.Find("Path").gameObject;
         myAgent.GetComponent<SplineController>().Duration = duration;
     }
 
