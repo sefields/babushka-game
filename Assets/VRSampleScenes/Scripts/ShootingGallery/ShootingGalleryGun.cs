@@ -101,38 +101,42 @@ namespace VRStandardAssets.ShootingGallery
             StartCoroutine(ShootCooldown());
 
             // Otherwise, if there is an interactible currently being looked at, try to find it's BabushkaTarget component.
-            BabushkaTarget shootingTarget = m_EyeRaycaster.CurrentInteractible ? m_EyeRaycaster.CurrentInteractible.GetComponent<BabushkaTarget>() : null;
+            BabushkaTarget babushkaTarget = m_EyeRaycaster.CurrentInteractible ? m_EyeRaycaster.CurrentInteractible.GetComponent<BabushkaTarget>() : null;
+
+            // We will also get the transform of the target for the purpose of calculating distance
+            Transform target;
+            float targetDistance;
+            // If we discovered a babushkaTarget a moment ago...
+            if (babushkaTarget)
+            {
+                target = babushkaTarget.transform;
+                targetDistance = Vector3.Distance(m_GunEnd.position, target.position);
+            }
+            else {
+                target = null;
+                targetDistance = m_DefaultLineLength;
+            }
 
             // If there is a BabushkaTarget component tell it to receive a hit
-            if (shootingTarget)
+            if (babushkaTarget)
             {
-                shootingTarget.ReceiveHit(scoreMultiplier);
+                babushkaTarget.ReceiveHit(scoreMultiplier, (int)targetDistance);
                 scoreMultiplier += 1;
             }
             //  Otherwise the player has missed. Reset their multiplier.
             else scoreMultiplier = 1;
             UpdateScoreMultiplierDisplay();
 
-            // If there is a ShootingTarget component get it's transform as the target for shooting at.
-            Transform target = shootingTarget ? shootingTarget.transform : null;
-
-            // Start shooting at the target.
-            StartCoroutine (Fire (target));
+            // Display visual aspects of shot
+            StartCoroutine (Fire (target, targetDistance));
         }
 
 
-        //  This function seems to be all visual stuff.
-        private IEnumerator Fire(Transform target)
+        //  All the visual aspects of a shot
+        private IEnumerator Fire(Transform target, float lineLength)
         {
             // Play the sound of the gun firing.
             m_GunAudio.Play();
-
-            // Set the length of the line renderer to the default.
-            float lineLength = m_DefaultLineLength;
-
-            // If there is a target, the line renderer's length is instead the distance from the gun to the target.
-            if (target)
-                lineLength = Vector3.Distance (m_GunEnd.position, target.position);
 
             // Chose an index for a random flare mesh.
             int randomFlareIndex = Random.Range (0, m_FlareMeshes.Length);

@@ -629,6 +629,8 @@ MonoBehaviour:
   mySpawner: {fileID: 0}
   respawnTimeMin: 1
   respawnTimeMax: 3
+  scorePopPrefab: {fileID: 1000012920360176, guid: 95cc1e0c09cb3a74eab0ae0b6e7d65e4,
+    type: 2}
 --- !u!114 &114000012458047306
 MonoBehaviour:
   m_ObjectHideFlags: 1

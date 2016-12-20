@@ -47,6 +47,8 @@ namespace VRStandardAssets.ShootingGallery
         public float respawnTimeMin;
         public float respawnTimeMax;
 
+        public GameObject scorePopPrefab;
+
 
         private void Awake()
         {
@@ -145,10 +147,14 @@ namespace VRStandardAssets.ShootingGallery
         }
 
         //  This is called by ShootingGalleryGun.cs
-        public void ReceiveHit(int scoreMultiplier)
+        public void ReceiveHit(int scoreMultiplier, int distance)
         {
+            int score = (m_Score + DistanceToScoreBonus(distance)) * scoreMultiplier;
+            GameObject scorePop = (GameObject) Instantiate(scorePopPrefab, transform.position, Quaternion.identity);
+            scorePop.GetComponent<ScorePop>().UpdateScoreDisplay(score);
+
             // Add to the player's score.
-            SessionData.AddScore(m_Score * scoreMultiplier);
+            SessionData.AddScore(score);
 
             if (health > 1)
             {
@@ -201,6 +207,16 @@ namespace VRStandardAssets.ShootingGallery
             float time = UnityEngine.Random.Range(respawnTimeMin, respawnTimeMax);
             if (mySpawner)
                 StartCoroutine(mySpawner.GetComponent<Spawner>().WaitAndRespawn(time));
+        }
+
+        int DistanceToScoreBonus(int distance)
+        {
+            int result;
+            if (distance < 15) result = 0;
+            else if (distance >= 15 && distance <= 30) result = 1;
+            else result = 2;
+            Debug.Log(result);
+            return result;
         }
     }
 }
