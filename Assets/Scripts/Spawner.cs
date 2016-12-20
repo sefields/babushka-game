@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour {
     [SerializeField]
     GameObject dollPrefab;
     [SerializeField]
+    GameObject spawnySparks;
+    [SerializeField]
     float duration;
     GameObject myAgent;
     private GameObject myPath;
@@ -23,6 +25,7 @@ public class Spawner : MonoBehaviour {
 
     void Spawn()
     {
+        Instantiate(spawnySparks, transform.position, Quaternion.identity);
         myAgent = Instantiate(dollPrefab, transform.position, Quaternion.identity) as GameObject;
         BabushkaTarget respawn = myAgent.GetComponent<BabushkaTarget>();
         if (respawn != null) // This is the case where the thing that we spawned is a doll.
