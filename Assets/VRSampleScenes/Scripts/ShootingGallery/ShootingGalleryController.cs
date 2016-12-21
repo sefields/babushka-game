@@ -171,7 +171,7 @@ namespace VRStandardAssets.ShootingGallery
                         // Spawn a target.
                         // Spawn (gameTimer);
                         int randomSpawnerIndex = Random.Range(0, spawners.transform.childCount);
-                        spawners.transform.GetChild(randomSpawnerIndex).gameObject.GetComponent<Spawner>().Spawn();
+                        GameObject newTarget = (GameObject) spawners.transform.GetChild(randomSpawnerIndex).gameObject.GetComponent<Spawner>().Spawn();
                     }
                 }
                 if (difficultyTimer <= 0f)

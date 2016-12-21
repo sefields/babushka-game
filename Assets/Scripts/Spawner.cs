@@ -48,7 +48,7 @@ public class Spawner : MonoBehaviour {
     //      of the game or when myAgent has been destroyed.
     // Postcondition: A spawn point is randomly selected from my children. Then, 
     //      myAgent is created from dollPrefab, at that spawn point.
-    public void Spawn()
+    public GameObject Spawn()
     {
         // Pick a random spawn point from my children
         spawnPointCount = transform.childCount;
@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour {
         if (activeSpawnPoints[randomSpawnPointIndex])
         {
             Debug.Log("That spawn point is already active.");
-            return;
+            return null;
         }
         activeSpawnPoints[randomSpawnPointIndex] = true;
         Transform spawnPoint = transform.GetChild(randomSpawnPointIndex);
@@ -81,6 +81,7 @@ public class Spawner : MonoBehaviour {
         // Set the agent on its path
         myAgent.GetComponent<SplineController>().SplineRoot = spawnPoint.Find("Path").gameObject;
         myAgent.GetComponent<SplineController>().Duration = duration;
+        return myAgent;
     }
 
     public IEnumerator WaitAndRespawn(float time, int index)
