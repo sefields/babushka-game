@@ -17,6 +17,8 @@ namespace VRStandardAssets.ShootingGallery
         [SerializeField] private float m_BaseSpawnProbability = 0.7f;   // When there are the ideal number of targets, this is the probability another will spawn.
         [SerializeField] private float m_GameLength = 60f;              // Time a game lasts in seconds.
         [SerializeField] private float m_SpawnInterval = 1f;            // How frequently a target could spawn.
+        [SerializeField]
+        private float m_DifficultyInterval = 10f;
         [SerializeField] private float m_EndDelay = 1.5f;               // The time the user needs to wait between the outro UI and being able to continue.
         [SerializeField] private float m_SphereSpawnInnerRadius = 5f;   // For the 360 shooter, the nearest targets can spawn.
         [SerializeField] private float m_SphereSpawnOuterRadius = 10f;  // For the 360 shooter, the furthest targets can spawn.
@@ -38,9 +40,12 @@ namespace VRStandardAssets.ShootingGallery
 
         public bool IsPlaying { get; private set; }                     // Whether or not the game is currently playing.
 
+        GameObject spawners;
+
 
         private IEnumerator Start()
         {
+            spawners = GameObject.Find("Spawners");
             // Set the game type for the score to be recorded correctly.
             SessionData.SetGameType(m_GameType);
 
@@ -145,6 +150,9 @@ namespace VRStandardAssets.ShootingGallery
             // The amount of time before the next spawn is the full interval.
             float spawnTimer = m_SpawnInterval;
 
+            // The amount of time before the difficulty notches up
+            float difficultyTimer = m_DifficultyInterval;
+
             // While there is still time remaining...
             while (gameTimer > 0f)
             {
@@ -161,8 +169,17 @@ namespace VRStandardAssets.ShootingGallery
                         m_SpawnProbability -= m_ProbabilityDelta;
 
                         // Spawn a target.
-                        Spawn (gameTimer);
+                        // Spawn (gameTimer);
+                        int randomSpawnerIndex = Random.Range(0, spawners.transform.childCount);
+                        spawners.transform.GetChild(randomSpawnerIndex).gameObject.GetComponent<Spawner>().Spawn();
                     }
+                }
+                if (difficultyTimer <= 0f)
+                {
+                    difficultyTimer = m_DifficultyInterval;
+                    m_IdealTargetNumber += 1;
+                    m_ProbabilityDelta = (1f - m_BaseSpawnProbability) / m_IdealTargetNumber;
+                    Debug.Log("Ideal targets number: " + m_IdealTargetNumber);
                 }
 
                 // Wait for the next frame.
@@ -171,6 +188,7 @@ namespace VRStandardAssets.ShootingGallery
                 // Decrease the timers by the time that was waited.
                 gameTimer -= Time.deltaTime;
                 spawnTimer -= Time.deltaTime;
+                difficultyTimer -= Time.deltaTime;
 
                 // Set the timer bar to be filled by the amount 
                 m_TimerBar.fillAmount = gameTimer / m_GameLength;

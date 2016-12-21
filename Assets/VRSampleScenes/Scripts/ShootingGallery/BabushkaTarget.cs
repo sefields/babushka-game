@@ -44,6 +44,7 @@ namespace VRStandardAssets.ShootingGallery
         public GameObject killySparks;
 
         public GameObject mySpawner;
+        int myIndex;
         public float respawnTimeMin;
         public float respawnTimeMax;
 
@@ -206,7 +207,7 @@ namespace VRStandardAssets.ShootingGallery
         {
             float time = UnityEngine.Random.Range(respawnTimeMin, respawnTimeMax);
             if (mySpawner)
-                StartCoroutine(mySpawner.GetComponent<Spawner>().WaitAndRespawn(time));
+                StartCoroutine(mySpawner.GetComponent<Spawner>().WaitAndRespawn(time, myIndex));
         }
 
         int DistanceToScoreBonus(int distance)
@@ -215,8 +216,14 @@ namespace VRStandardAssets.ShootingGallery
             if (distance < 15) result = 0;
             else if (distance >= 15 && distance <= 30) result = 1;
             else result = 2;
-            Debug.Log(result);
+            //Debug.Log(result);
             return result;
+        }
+
+        public void SetMySpawner(GameObject spawner, int index)
+        {
+            mySpawner = spawner;
+            myIndex = index;
         }
     }
 }
