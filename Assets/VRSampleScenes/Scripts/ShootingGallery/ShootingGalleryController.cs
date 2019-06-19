@@ -142,7 +142,7 @@ namespace VRStandardAssets.ShootingGallery
         private IEnumerator PlayUpdate ()
         {
             // When the updates start, the probability of a target spawning is 100%.
-            m_SpawnProbability = 1f;
+            SetSpawnProbability(1f);
 
             // The time remaining is the full length of the game length.
             float gameTimer = m_GameLength;
@@ -166,20 +166,25 @@ namespace VRStandardAssets.ShootingGallery
                         spawnTimer = m_SpawnInterval;
 
                         // Decrease the probability of a spawn next time because there are now more targets.
-                        m_SpawnProbability -= m_ProbabilityDelta;
+                        SetSpawnProbability(m_SpawnProbability-m_ProbabilityDelta);
 
+                        int randomSpawnerIndex = Random.Range(0, spawners.transform.childCount);
+                        BabushkaTarget targetScript = spawners.transform.GetChild(randomSpawnerIndex).gameObject.GetComponent<Spawner>().Spawn();
+                        if (targetScript) targetScript.OnRemove += HandleTargetRemoved;
                         // Spawn a target.
                         // Spawn (gameTimer);
-                        int randomSpawnerIndex = Random.Range(0, spawners.transform.childCount);
-                        GameObject newTarget = (GameObject) spawners.transform.GetChild(randomSpawnerIndex).gameObject.GetComponent<Spawner>().Spawn();
+
                     }
                 }
+                // When the difficulty timer has gone off:
                 if (difficultyTimer <= 0f)
                 {
+                    // Reset it, then notch up the difficulty and recalculate the probability delta.
                     difficultyTimer = m_DifficultyInterval;
                     m_IdealTargetNumber += 1;
                     m_ProbabilityDelta = (1f - m_BaseSpawnProbability) / m_IdealTargetNumber;
-                    Debug.Log("Ideal targets number: " + m_IdealTargetNumber);
+                    SetSpawnProbability(1f);
+                    Debug.Log("Ideal targets number: " + m_IdealTargetNumber + ". Probability delta: " + m_ProbabilityDelta);
                 }
 
                 // Wait for the next frame.
@@ -196,8 +201,10 @@ namespace VRStandardAssets.ShootingGallery
         }
 
 
-        private void Spawn (float timeRemaining)
+        private void Spawn (/*float timeRemaining*/)
         {
+
+            /* Commenting out the original code that was here.
             // Get a reference to a target instance from the object pool.
             GameObject target = m_TargetObjectPool.GetGameObjectFromPool ();
 
@@ -210,6 +217,7 @@ namespace VRStandardAssets.ShootingGallery
 
             // Subscribe to the OnRemove event.
             shootingTarget.OnRemove += HandleTargetRemoved;
+            */
         }
 
 
@@ -244,16 +252,22 @@ namespace VRStandardAssets.ShootingGallery
         }
 
 
-        private void HandleTargetRemoved(ShootingTarget target)
+        private void HandleTargetRemoved(/*ShootingTarget target*/ BabushkaTarget target)
         {
             // Now that the event has been hit, unsubscribe from it.
             target.OnRemove -= HandleTargetRemoved;
 
             // Return the target to it's object pool.
-            m_TargetObjectPool.ReturnGameObjectToPool (target.gameObject);
+            // m_TargetObjectPool.ReturnGameObjectToPool (target.gameObject);
 
             // Increase the likelihood of a spawn next time because there are fewer targets now.
-            m_SpawnProbability += m_ProbabilityDelta;
+            SetSpawnProbability(m_SpawnProbability + m_ProbabilityDelta);
+        }
+
+        private void SetSpawnProbability(float howMuch)
+        {
+            m_SpawnProbability = howMuch;
+            Debug.Log("Spawn Probability is " + m_SpawnProbability);
         }
     }
 }

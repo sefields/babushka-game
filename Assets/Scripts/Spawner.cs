@@ -48,7 +48,7 @@ public class Spawner : MonoBehaviour {
     //      of the game or when myAgent has been destroyed.
     // Postcondition: A spawn point is randomly selected from my children. Then, 
     //      myAgent is created from dollPrefab, at that spawn point.
-    public GameObject Spawn()
+    public BabushkaTarget Spawn()
     {
         // Pick a random spawn point from my children
         spawnPointCount = transform.childCount;
@@ -81,7 +81,8 @@ public class Spawner : MonoBehaviour {
         // Set the agent on its path
         myAgent.GetComponent<SplineController>().SplineRoot = spawnPoint.Find("Path").gameObject;
         myAgent.GetComponent<SplineController>().Duration = duration;
-        return myAgent;
+        // We return the script up to ShootingGalleryController so that it can set up the events.
+        return respawn;
     }
 
     public IEnumerator WaitAndRespawn(float time, int index)
